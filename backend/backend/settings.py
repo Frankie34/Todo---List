@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'corsheaders',
     'api',
     'rest_framework',
     'django.contrib.admin',
@@ -50,6 +51,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware', 
 )
 
 ROOT_URLCONF = 'backend.urls'
@@ -101,6 +104,66 @@ USE_L10N = True
 
 USE_TZ = True
 
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ORIGIN_WHITELIST = (
+
+'*',
+
+)
+
+CORS_ALLOW_METHODS = (
+
+'DELETE',
+
+'GET',
+
+'OPTIONS',
+
+'PATCH',
+
+'POST',
+
+'PUT',
+
+'VIEW',
+
+)
+
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOW_HEADERS = (
+
+'accept',
+
+'XMLHttpRequest',
+
+'X_FILENAME',
+
+'accept-encoding',
+
+'authorization',
+
+'content-type',
+
+'dnt',
+
+'origin',
+
+'user-agent',
+
+'x-csrftoken',
+
+'x-requested-with',
+
+'Pragma',
+
+'X-Custom-Header',
+
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
