@@ -26,20 +26,8 @@ export default class TodoListModel {
 
   @action
   destroy(id) {
-    var i = 0;
-    var j = 0;
-
-    for(i = this.todos.length - 1;i > id;i = i - 1){
-      this.todos1.push(new TodoModel(this.todos[i].title, this.todos[i].user, this.todos[i].priority));
-      this.todos.pop();
-    }
-
-    this.todos.pop();
-
-    for(;i < this.todos.length - 1;i = i + 1){
-      this.todos.push(new TodoModel(this.todos1[j].title, this.todos1[j].user, this.todos1[j].priority));
-      j = j + 1;
-    }
+    var i = id;
+    this.todos.splice(i,1);
   }
 
 }
