@@ -120,7 +120,7 @@ class TodoList extends React.Component {
     var priority = "0";
     this.props.store.addTodo(this.newTodoTitle, this.newTodoUser, this.newTodoPriority);
 
-    todo = this.newTodoTitle;
+    title = this.newTodoTitle;
     priority = this.newTodoPriority;
 
     $.post(url,{user:user, title:title, flag:flag, priority:priority}, function(result){
