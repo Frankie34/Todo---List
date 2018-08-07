@@ -115,7 +115,7 @@ class TodoList extends React.Component {
     const react_this = this;
     var url="http://127.0.0.1:8000/todo/";
     var user = 1;
-    var todo = "";
+    var title = "";
     var flag = "0";
     var priority = "0";
     this.props.store.addTodo(this.newTodoTitle, this.newTodoUser, this.newTodoPriority);
@@ -123,7 +123,7 @@ class TodoList extends React.Component {
     todo = this.newTodoTitle;
     priority = this.newTodoPriority;
 
-    $.post(url,{user:user, todo:todo, flag:flag, priority:priority}, function(result){
+    $.post(url,{user:user, title:title, flag:flag, priority:priority}, function(result){
             console.log(result)
         })
     this.newTodoTitle = "";
