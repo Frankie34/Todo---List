@@ -133,8 +133,13 @@ class TodoList extends React.Component {
   };
 
   @action
-  handleFormSubmit2 = e => {
+   handleFormSubmit2 = e => {
     this.props.store.destroy(this.num1);
+    fetch("http://127.0.0.1:8000/todo/"+this.num1+"/",{
+      method:'DELETE',
+    }).then(function(result){
+      console.log(result)
+    })
     e.preventDefault();
   };
 
