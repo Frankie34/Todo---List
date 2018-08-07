@@ -9,19 +9,6 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 
 @observer
 class TodoList extends React.Component {
-  constructor(props) {
-      super(props);
-      this.state = {
-          res0: "",
-          res1: "",
-          res2: "",
-          res3: "",
-          res4: "",
-          len: 1,
-      }
-      this.todo = []
-  }
-
 
   @observable newTodoTitle = "";
   @observable newTodoUser = "";
@@ -132,36 +119,31 @@ class TodoList extends React.Component {
     var flag = "0";
     var priority = "0";
     this.props.store.addTodo(this.newTodoTitle, this.newTodoUser, this.newTodoPriority);
+
     todo = this.newTodoTitle;
     priority = this.newTodoPriority;
+
     $.post(url,{user:user, todo:todo, flag:flag, priority:priority}, function(result){
             console.log(result)
-            react_this.setState({res:result});
         })
     this.newTodoTitle = "";
     this.newTodoUser = "";
     this.newTodoPriority = "";
     e.preventDefault();
   };
+
   @action
   handleFormSubmit2 = e => {
     this.props.store.destroy(this.num1);
     e.preventDefault();
   };
+
   @action
   get0 = e => {
-    var i = 0;
     var url="http://127.0.0.1:8000/todo/";
     const react_this = this;
     $.get(url, function(result){
-      this.todo = result;
-      console.log(result.length);
-      if(react_this.state.len <= this.todo.length) {
-        i = react_this.state.len - 1;
-        react_this.setState({len:react_this.state.len + 1, res0:this.todo[i].user, res1:this.todo[i].todo, res2:this.todo[i].flag, res3:this.todo[i].priority, res4:this.todo[i].pubtime});
-        console.log(react_this.state.res1);
-        react_this.props.store.addTodo(react_this.state.res1, react_this.state.res0, react_this.state.res3);
-      }
+      react_this.props.store.todos = result;
     })
     e.preventDefault();
   };

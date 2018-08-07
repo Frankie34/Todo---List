@@ -7,12 +7,6 @@ import './index.css';
 import App from './App';
 
 
-
-import TodoList from "./components/TodoList";
-import TodoListModel from "./models/TodoListModel";
-import TodoModel from "./models/TodoModel";
-
-
 render(
   <div>
   	<App />
@@ -20,7 +14,5 @@ render(
   document.getElementById("root")
 );
 
-
-// playing around in the console
 
 
