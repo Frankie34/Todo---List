@@ -72,7 +72,7 @@ class TodoList extends React.Component {
         <hr />
         <ul>
           {this.props.store.todos.map(todo => (
-            <Todo todo={todo} key={todo.id} />
+            <Todo todo={todo} key={todo.priority} />
           ))}
         </ul>
         Tasks left: {this.props.store.unfinishedTodoCount}
@@ -133,7 +133,7 @@ class TodoList extends React.Component {
   };
 
   @action
-   handleFormSubmit2 = e => {
+  handleFormSubmit2 = e => {
     this.props.store.destroy(this.num1);
     fetch("http://127.0.0.1:8000/todo/"+this.num1+"/",{
       method:'DELETE',
@@ -149,6 +149,7 @@ class TodoList extends React.Component {
     const react_this = this;
     $.get(url, function(result){
       react_this.props.store.todos = result;
+      console.log(react_this.props.store.todos[1].id)
     })
     e.preventDefault();
   };

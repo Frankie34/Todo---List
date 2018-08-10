@@ -3,7 +3,6 @@ import TodoModel from "./TodoModel";
 
 export default class TodoListModel {
   @observable todos = [];
-  todos1 = [];
 
 
   @computed
@@ -17,16 +16,16 @@ export default class TodoListModel {
   }
 
   @action
-  updateTodo(id, title, user, priority) {
-  	this.todos[id].title = title;
-  	this.todos[id].user = user;
-  	this.todos[id].priority = priority;
+  updateTodo(ID, title, user, priority) {
+  	this.todos[ID].title = title;
+  	this.todos[ID].user = user;
+  	this.todos[ID].priority = priority;
 
   }
 
   @action
-  destroy(id) {
-    var i = id;
+  destroy(ID) {
+    var i = ID;
     this.todos.splice(i,1);
   }
 

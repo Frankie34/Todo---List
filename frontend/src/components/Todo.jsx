@@ -9,7 +9,7 @@ const Todo = observer(({ todo }) => (
       checked={todo.finished}
       onClick={() => (todo.finished = !todo.finished)}
     />
-    todo: {todo.title} user: {todo.user} priority :{todo.priority}
+    id: {todo.id} todo: {todo.title} user: {todo.user} priority :{todo.priority} 
   </li>
 ));
 

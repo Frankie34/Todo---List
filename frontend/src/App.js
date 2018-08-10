@@ -22,7 +22,6 @@ class App extends Component {
 	    	  	<TodoList store={store} />
 	    	</div>
 	    );
-	    document.getElementById("root")
   	}
 }
 
